@@ -85,10 +85,10 @@ class Producto(models.Model):
     marca = models.ForeignKey('marca', null=True, blank=False, on_delete=models.CASCADE)
     precio = models.FloatField()
     stock_a=models.IntegerField(verbose_name='Stock Actual')
-    stock_r=models.IntegerField(verbose_name='Stock Reposicion', default=0)
+    stock_r=models.IntegerField(verbose_name='Stock Reposicion', default=0, null=True, blank=True)
     stock_m=models.IntegerField(verbose_name='Stock Minimo')
-    peso = models.DecimalField(max_digits=5, decimal_places=2)
-    consis = models.ForeignKey('Consistencia', null=True, blank=False, on_delete=models.CASCADE)
+    peso = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
+    consis = models.ForeignKey('Consistencia', null=True, blank=True, on_delete=models.CASCADE)
     obs = models.CharField(max_length=150, verbose_name='Observaciones', default='')
     des = models.TextField(verbose_name='Descripcion', default='')
     
